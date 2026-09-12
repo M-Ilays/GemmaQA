@@ -1,0 +1,63 @@
+# Local caches and agent/IDE state (never publish)
+_caches/
+.claude/
+**/.claude/
+.cursor/
+**/.cursor/
+.idea/
+.vscode/
+
+# Secrets and credentials (belt-and-suspenders; gemmaqa/.gitignore also covers these)
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# UI/runtime LLM choice (id only, still local)
+.runtime-provider
+**/.runtime-provider
+*.pem
+*.p12
+*.pfx
+*.key
+*service-account*.json
+*credentials*.json
+application_default_credentials.json
+google-credentials.json
+
+# Python / Node runtime (never publish)
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vite/
+dist/
+dist-server/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated evidence (keep placeholders via gemmaqa/.gitignore)
+gemmaqa/evidence/
+evidence/
+
+# Playwright artifacts
+playwright-report/
+test-results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local generated evidence / third-party samples (not product source)
+Haulvana_*
+LIVE_RUN_*.json
+*_EVIDENCE.json
+GEMMA_CALL_OPTIMIZATION_*.json
+*CONTACT_LIST_PERF.json

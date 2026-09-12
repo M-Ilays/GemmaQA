@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Item</title>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+    <h1>Create Item</h1>
+    <form id="item-form">
+      <label for="name">Name</label>
+      <input id="name" name="name" required placeholder="Item name" />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+      <button type="submit">Save</button>
+    </form>
+    <p id="msg" role="alert"></p>
+    <script>
+      document.getElementById("item-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name");
+        if (!name.value) {
+          document.getElementById("msg").textContent = "Name is required";
+          return;
+        }
+        document.getElementById("msg").textContent = "Created successfully";
+      });
+    </script>
+  </body>
+</html>

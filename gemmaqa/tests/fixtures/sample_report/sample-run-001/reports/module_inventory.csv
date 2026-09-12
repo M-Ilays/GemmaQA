@@ -1,0 +1,4 @@
+module_id,name,description,entry_urls,page_count
+ca7356f0-8990-4822-bd38-1265c259ea72,Authentication,Authentication area of the application,https://demo.gemmaqa.local/login,1
+bb9e2401-40d5-419c-b2df-c99122b438d8,Dashboard,Dashboard area of the application,https://demo.gemmaqa.local/dashboard,1
+9588c35e-5861-4110-9b12-54c848c1de22,Inventory,Inventory area of the application,https://demo.gemmaqa.local/inventory,1

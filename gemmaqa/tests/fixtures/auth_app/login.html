@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login — Auth Fixture</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <p id="msg"></p>
+  <form id="login_form" action="/dashboard.html" method="get">
+    <label>Email <input id="email" name="email" type="email" required /></label>
+    <label>Password <input id="password" name="password" type="password" required /></label>
+    <button type="submit" id="login_submit">Submit</button>
+  </form>
+  <a id="signup_link" href="register.html">Sign up</a>
+  <script>
+    const params = new URLSearchParams(location.search);
+    if (params.get("expired") === "1") {
+      document.getElementById("msg").textContent = "Session expired — please log in";
+    }
+    document.getElementById("login_form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const users = JSON.parse(localStorage.getItem("gemmaqa_users") || "{}");
+      if (users[email] && users[email] === password) {
+        localStorage.setItem("gemmaqa_session", email);
+        location.href = "dashboard.html";
+      } else if (email === "demo@example.com" && password === "DemoPass123!") {
+        localStorage.setItem("gemmaqa_session", email);
+        location.href = "dashboard.html";
+      } else {
+        document.getElementById("msg").textContent = "Incorrect email or password";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+# Build context: repository root (d:\GemmaQA)
+# Never send secrets or local runtime data to the daemon.
+
+.git
+.gitignore
+.gcloudignore
+
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env*.example
+
+**/.venv
+**/venv
+**/node_modules
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/.vite
+**/dist
+**/dist-server
+
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# Credentials / keys
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*credentials*.json
+**/service-account*.json
+**/application_default_credentials.json
+**/*.key
+
+# Local evidence (regenerated at runtime)
+gemmaqa/evidence/**
+!gemmaqa/evidence/**/.gitkeep
+
+# Agent / IDE
+**/.idea
+**/.vscode
+**/.cursor
+**/agent-transcripts
+
+# Docs and reports not needed in the image
+*.md
+!gemmaqa/README.md
+
+# Local compose / scripts noise
+**/playwright-report
+**/test-results
+**/.DS_Store
+Thumbs.db

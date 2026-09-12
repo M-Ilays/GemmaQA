@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.db
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Env files (never commit secrets). Keep only *.example templates.
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# AgentCore generated files
+agentcore.yaml
+.agentcore/
+
+# UI-selected provider id (no secrets, still operator-local)
+.runtime-provider
+
+# Node
+node_modules/
+dist/
+dist-server/
+.vite/
+*.local
+
+# Evidence artifacts (keep folder placeholders only)
+evidence/**
+!evidence/**/.gitkeep
+!evidence/screenshots/
+!evidence/screenshots/.gitkeep
+!evidence/traces/
+!evidence/traces/.gitkeep
+!evidence/reports/
+!evidence/reports/.gitkeep
+
+# Local startup / audit logs
+evidence/_*.log
+evidence/_*.txt
+
+# IDE / OS / local agent
+.idea/
+.vscode/
+.claude/
+.cursor/
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright-report/
+test-results/

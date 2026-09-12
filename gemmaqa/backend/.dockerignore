@@ -1,0 +1,16 @@
+# When building gemmaqa/backend/Dockerfile (local compose), never copy secrets.
+.env
+.env.*
+!.env.example
+.venv
+venv
+__pycache__
+*.py[cod]
+*.db
+*.sqlite
+*.pem
+*.p12
+*credentials*.json
+service-account*.json
+application_default_credentials.json
+.pytest_cache

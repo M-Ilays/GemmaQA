@@ -1,0 +1,14 @@
+# AWS Strands Agents SDK — required for the Agents for Humans path.
+# Install with:
+#   pip install -r requirements.txt
+#   pip install -r requirements-strands.txt
+#
+# Official quickstart: https://strandsagents.com/docs/user-guide/quickstart/python/
+# Default model provider is Amazon Bedrock. Do not put keys in git.
+strands-agents>=1.0.0
+# If another extra pins OpenTelemetry, keep API/SDK on 1.42.x so they coexist.
+# Keep the 1.42 line so both extras can live in one venv.
+opentelemetry-api>=1.39,<=1.42.1
+opentelemetry-sdk>=1.39,<=1.42.1
+opentelemetry-instrumentation>=0.51b0,<=0.63b1
+opentelemetry-instrumentation-threading>=0.51b0,<=0.63b1

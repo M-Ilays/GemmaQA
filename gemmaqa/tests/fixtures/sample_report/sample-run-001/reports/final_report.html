@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GemmaQA Report sample-r</title>
+  <style>
+    :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --accent:#0f766e; --bg:#f8fafc; }
+    body { margin:0; font-family: "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+    header { background:linear-gradient(135deg,#0b1b2b,#134e4a); color:#fff; padding:2rem 1.5rem; }
+    header p { color:#99f6e4; }
+    main { max-width:960px; margin:0 auto; padding:1.5rem; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin:1rem 0 0; }
+    .metrics div { background:rgba(255,255,255,.08); border-radius:12px; padding:1rem; }
+    .metrics span { display:block; font-size:1.6rem; font-weight:700; margin-top:.35rem; }
+    .disclaimer { color:#cbd5e1; font-size:.9rem; }
+    .section { background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.25rem 1.4rem; margin:1rem 0; }
+    h2 { margin-top:0; color:var(--accent); font-size:1.15rem; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; }
+    th, td { border-bottom:1px solid var(--line); text-align:left; padding:.45rem .3rem; vertical-align:top; }
+    code, pre { background:#f1f5f9; border-radius:6px; }
+    pre { padding:.75rem; overflow:auto; }
+    ul { padding-left:1.2rem; }
+    .muted { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GemmaQA Report</h1>
+    <p>Run <code>sample-run-001</code> · https://demo.gemmaqa.local/</p>
+    <div class='metrics'><div><strong>Observed</strong><span>100.0%</span></div><div><strong>Explored</strong><span>100.0%</span></div><div><strong>Executed</strong><span>100.0%</span></div><div><strong>Bugs</strong><span>1</span></div></div><p class='disclaimer'>Coverage percentages reflect observed exploratory activity only and do not claim complete application coverage. Exploration coverage (pages visited/discovered) is NOT test coverage: see generated vs. executed scenario counts, CRUD-operation discovered/executed/verified counts, and assertion verification counts for what was actually tested and confirmed.</p>
+  </header>
+  <main>
+    <section class="section"><h2 id="Executive Summary">Executive Summary</h2><p>Exploratory QA of **Demo** at `https://demo.gemmaqa.local/` visited 3 unique page(s), explored 3, executed 1 action(s), generated 2 scenario(s), and recorded 1 confirmed bug(s) and 1 suspected issue(s). Observed exploratory coverage 100.0% (not complete application coverage). Stop reason: action_budget_sample.</p></section><section class="section"><h2 id="Run Environment">Run Environment</h2><ul><li>**Provider:** Mock</li>
+<li>**Model:** None</li>
+<li>**Browser adapter:** Direct Playwright</li>
+<li>**Adapter connection:** unknown</li>
+<li>**Screenshots:** supported</li>
+<li>**Console capture:** supported</li>
+<li>**Network capture:** supported</li>
+<li>**Adapter execution failures:** 0</li>
+<li>**Run mode:** Mock / deterministic</li>
+<li>**Validated decisions:** 0</li>
+<li>**Rejected decisions:** 0</li>
+<li>**Executed actions:** 1</li>
+<li>**Stop reason:** action_budget_sample</li></section><section class="section"><h2 id="Configuration and Capability Disclosure">Configuration and Capability Disclosure</h2><ul><li>**Provider:** Mock</li>
+<li>**Model:** None</li>
+<li>**Provider capability mode:** exploration_only</li>
+<li>**Browser adapter:** Direct Playwright</li>
+<li>**Autonomous investigation:** disabled</li>
+<li>**Controlled writes:** disabled</li>
+<li>**Safe mode:** on</li>
+<li>**Destructive actions:** blocked</li>
+<li>**Actor switching:** unavailable (0 credential profile(s))</li>
+<li>**Visual perception:** disabled</li>
+<li>**Test-data generation:** disabled</li>
+<br/>
+<p>&gt; **Provider is Mock: exploration-only. Mock can navigate, inspect forms/tables, and generate/classify scenarios, but it CANNOT make the general semantic CRUD decisions needed to autonomously drive scenarios to completion for an arbitrary target application. Generated-scenario counts under this provider are not a claim of autonomous CRUD testing capability.**</p></section><section class="section"><h2 id="Product Overview">Product Overview</h2><p>**Name:** Demo</p>
+<br/>
+<p>Exploratory QA of https://demo.gemmaqa.local/</p>
+<br/>
+<p>**Purpose:** A web application with user registration and/or login flows.</p>
+<br/>
+<p>**Features observed:** Authentication, Dashboard, Inventory</p></section><section class="section"><h2 id="Inferred Business Domain">Inferred Business Domain</h2><p>Authentication</p></section><section class="section"><h2 id="Application Purpose">Application Purpose</h2><p>A web application with user registration and/or login flows.</p></section><section class="section"><h2 id="Modules">Modules</h2><ul><li>**Authentication**: Authentication area of the application (1 pages)</li>
+<li>**Dashboard**: Dashboard area of the application (1 pages)</li>
+<li>**Inventory**: Inventory area of the application (1 pages)</li></section><section class="section"><h2 id="Navigation Structure">Navigation Structure</h2><pre>
+flowchart TD
+  P0[&quot;Login&quot;]
+  P1[&quot;Dashboard&quot;]
+  P2[&quot;Inventory GemmaQA Demo&quot;]
+  P0 --&gt;|submit| P1
+  P1 --&gt;|click| P2
+</pre></section><section class="section"><h2 id="Page Inventory">Page Inventory</h2><table><thead>
+<tr><th>Title</th><th>URL</th><th>Type</th></tr>
+</thead><tbody>
+<tr><td>Login</td><td>https://demo.gemmaqa.local/login</td><td>authentication</td></tr>
+<tr><td>Dashboard</td><td>https://demo.gemmaqa.local/dashboard</td><td>dashboard</td></tr>
+<tr><td>Inventory / GemmaQA Demo</td><td>https://demo.gemmaqa.local/inventory</td><td>list</td></tr>
+</tbody></table></section><section class="section"><h2 id="Forms Inventory">Forms Inventory</h2><table><thead>
+<tr><th>Form ID</th><th>Page URL</th><th>Fields</th><th>Method</th></tr>
+</thead><tbody>
+<tr><td>56f308a0-f896-4ab0-88d2-d865f5a55887</td><td>https://demo.gemmaqa.local/login</td><td>2</td><td>POST</td></tr>
+<tr><td>94b25886-2c2d-45c4-af8b-362421d583db</td><td>https://demo.gemmaqa.local/inventory</td><td>1</td><td>GET</td></tr>
+</tbody></table></section><section class="section"><h2 id="Form Lifecycle">Form Lifecycle</h2><ul><li>Forms discovered: 2</li>
+<br/>
+<p>**By lifecycle state:**</p>
+<li>discovered: 2</li></section><section class="section"><h2 id="Tables Inventory">Tables Inventory</h2><table><thead>
+<tr><th>Table ID</th><th>Page URL</th><th>Headers</th><th>Rows</th></tr>
+</thead><tbody>
+<tr><td>tbl-tickets</td><td>https://demo.gemmaqa.local/dashboard</td><td>ID, Subject, Status</td><td>3</td></tr>
+</tbody></table></section><section class="section"><h2 id="Collection/Grid Coverage">Collection/Grid Coverage</h2><p>_No record-collection (grid/table/card-list) surfaces detected this run._</p></section><section class="section"><h2 id="Role and Permission Observations">Role and Permission Observations</h2><ul><li>**operator**: view dashboard, search inventory</li></section><section class="section"><h2 id="Workflow Catalog">Workflow Catalog</h2><p>**Login to dashboard**</p>
+<ul><li>Start: `https://demo.gemmaqa.local/login`</li>
+<p>  1. fill — Enter email</p>
+<p>  2. fill — Enter password</p>
+<p>  3. click — Submit login</p></section><section class="section"><h2 id="User Journeys">User Journeys</h2><ul><li>https://demo.gemmaqa.local/login -- submit --&gt; https://demo.gemmaqa.local/dashboard</li>
+<li>https://demo.gemmaqa.local/dashboard -- click --&gt; https://demo.gemmaqa.local/inventory</li></section><section class="section"><h2 id="Business Rule Observations">Business Rule Observations</h2><ul><li>Form form-login marks required fields: Email, Password</li>
+<li>Authentication surface observed at https://demo.gemmaqa.local/login</li></section><section class="section"><h2 id="Knowledge Graph Summary">Knowledge Graph Summary</h2><p>_No Knowledge Graph attached this run._</p></section><section class="section"><h2 id="Generated Goals">Generated Goals</h2><p>_No Goal Generation Engine attached this run._</p></section><section class="section"><h2 id="Scenario Planning Summary">Scenario Planning Summary</h2><p>_No Scenario Planning Engine attached this run._</p></section><section class="section"><h2 id="QA Strategy Summary">QA Strategy Summary</h2><p>_No QA Strategy Engine attached this run._</p></section><section class="section"><h2 id="Autonomous Investigation Summary">Autonomous Investigation Summary</h2><p>_Autonomous Investigation is disabled this run._</p></section><section class="section"><h2 id="CRUD Workflow Coverage">CRUD Workflow Coverage</h2><ul><li>**Create:** discovered=0, executed=0</li>
+<li>**Read:** discovered=0, executed=0</li>
+<li>**Update:** discovered=0, executed=0</li>
+<li>**Delete:** discovered=0, executed=0</li>
+<p>  _Read coverage reads record-collection discovery/inspection — see &#x27;Collection/Grid Coverage&#x27;._</p></section><section class="section"><h2 id="Test Scenarios">Test Scenarios</h2><ul><li>**Login with valid credentials** (smoke) — passed</li>
+<li>**Search inventory** (functional) — failed</li></section><section class="section"><h2 id="Test Execution Results">Test Execution Results</h2><ul><li>failed: 1</li>
+<li>passed: 1</li></section><section class="section"><h2 id="Executed Assertions">Executed Assertions</h2><p>_No autonomous-investigation assertions were evaluated this run._</p></section><section class="section"><h2 id="Blocked Scenarios">Blocked Scenarios</h2><p>_No scenarios are currently blocked._</p></section><section class="section"><h2 id="Unexecuted Scenarios">Unexecuted Scenarios</h2><p>_Every generated scenario reached a terminal executed outcome._</p></section><section class="section"><h2 id="Confirmed Bugs">Confirmed Bugs</h2><p>**HTTP 500 on session endpoint**</p>
+<ul><li>**Bug ID:** `BUG-001`</li>
+<li>**Module:** Authentication</li>
+<li>**Page / URL:** Login / `https://demo.gemmaqa.local/login`</li>
+<li>**Classification:** confirmed_bug</li>
+<li>**Severity / Priority:** critical / medium</li>
+<li>**Expected:** 200 OK</li>
+<li>**Actual:** 500 with Authorization: ***REDACTED***</li>
+<li>**Possible root cause (hypothesis only):** Unhandled exception in session service</li>
+<li>**Confidence:** 0.95</li>
+<li>**Steps:**</li>
+<p>  1. Open login</p>
+<p>  2. Submit credentials</p></section><section class="section"><h2 id="Suspected Bugs">Suspected Bugs</h2><p>**Console TypeError on login**</p>
+<ul><li>**Bug ID:** `analysis-4754888`</li>
+<li>**Module:** Authentication</li>
+<li>**Page / URL:** n/a / `https://demo.gemmaqa.local/login`</li>
+<li>**Classification:** suspected_bug</li>
+<li>**Severity / Priority:** medium / medium</li>
+<li>**Expected:** No console errors</li>
+<li>**Actual:** TypeError: x is undefined</li>
+<li>**Possible root cause (hypothesis only):** Hypothesis only — not verified</li>
+<li>**Confidence:** 0.6</li></section><section class="section"><h2 id="UX and Quality Observations">UX and Quality Observations</h2><ul><li>Inventory list has no breadcrumb trail</li></section><section class="section"><h2 id="Coverage Summary">Coverage Summary</h2><ul><li>Pages discovered: 3</li>
+<li>Pages explored: 3</li>
+<li>Observed anonymous surface coverage: none (0 anonymous page(s))</li>
+<li>Authenticated exploration coverage: none (0 authenticated page(s))</li>
+<li>Known-application coverage confidence: exploratory / incomplete</li>
+<li>Overall discovery completeness: not complete application coverage</li>
+<li>Observed coverage (visited/discovered ratio): 100.0%</li>
+<li>Explored coverage: 100.0%</li>
+<li>Executed coverage: 100.0%</li>
+<li>Authentication status: unknown</li>
+<li>Authentication method: n/a</li>
+<li>Authentication blocker: none</li>
+<li>Forms discovered/inspected/tested: 2/0/0</li>
+<li>Tables discovered/inspected: 1/0</li>
+<li>Tests generated/executed (legacy Tester): 2/2 (passed=1, failed=1)</li>
+<li>Local-control coverage: 0/0 (0.0%)</li>
+<li>Collections/grids discovered/inspected: 0/0 (0.0%)</li>
+<li>Goals generated: 0</li>
+<li>Scenario Planning scenarios generated/executable/executed: 0/0/0 (passed=0, failed=0, blocked=0)</li>
+<li>CRUD create discovered/executed: 0/0</li>
+<li>CRUD read (collection) discovered/executed: 0/0</li>
+<li>CRUD update discovered/executed: 0/0</li>
+<li>CRUD delete discovered/executed: 0/0</li>
+<li>Verification coverage (assertions evaluated/supported): 0/0 (contradicted=0, inconclusive=0)</li>
+<li>Cleanup coverage (succeeded/pending/manual): 0/0/0 (0.0%)</li>
+<li>Bugs / suspected / observations: 1/1/1</li>
+<li>Actions executed: 1</li>
+<br/>
+<p>_Coverage percentages reflect observed exploratory activity only and do not claim complete application coverage. Exploration coverage (pages visited/discovered) is NOT test coverage: see generated vs. executed scenario counts, CRUD-operation discovered/executed/verified counts, and assertion verification counts for what was actually tested and confirmed._</p></section><section class="section"><h2 id="Temporary Records">Temporary Records</h2><p>_No temporary test records were created this run._</p></section><section class="section"><h2 id="Cleanup Status">Cleanup Status</h2><ul><li>Succeeded: 0</li>
+<li>Pending: 0</li>
+<li>Manual cleanup required: 0</li>
+<li>Cleanup coverage: 0.0%</li></section><section class="section"><h2 id="Regression Checklist">Regression Checklist</h2><ul><li>[ ] Critical navigation paths remain reachable</li>
+<li>[ ] Primary forms render without console errors</li>
+<li>[ ] No new network 5xx on core pages</li>
+<li>[ ] Page titles remain present on explored pages</li>
+<li>[ ] Required fields reject empty submission</li></section><section class="section"><h2 id="Console Errors">Console Errors</h2><ul><li>`TypeError: x is undefined`</li></section><section class="section"><h2 id="Network Errors">Network Errors</h2><ul><li>`500 GET /api/session Authorization: ***REDACTED***`</li></section><section class="section"><h2 id="Evidence Index">Evidence Index</h2><table><thead>
+<tr><th>ID</th><th>Kind</th><th>Relative path</th><th>URL</th></tr>
+</thead><tbody>
+<tr><td>ev-shot</td><td>screenshot</td><td>screenshots/login.png</td><td>/api/runs/sample-run-001/evidence/file/screenshots/login.png</td></tr>
+</tbody></table></section><section class="section"><h2 id="Stop Reason">Stop Reason</h2><ul><li>**Why did the run stop?** action_budget_sample</li>
+<li>**Last meaningful operation:** click on el_020</li>
+<li>**What remained untested?** 0 scenario(s), 2 form(s), 0 CRUD operation(s)</li>
+<li>**What prevented execution?** n/a</li>
+<li>**Temporary records left behind:** 0</li>
+<br/>
+<p>**Recommended configuration changes for the next run:**</p>
+<li>No configuration changes indicated — nothing left blocked this run.</li></section><section class="section"><h2 id="Known Limitations">Known Limitations</h2><ul><li>Exploration is budget-limited and does not claim complete coverage.</li>
+<li>Single authenticated role unless multiple credentials were provided.</li>
+<li>Destructive, payment, invite, and messaging actions remain blocked.</li>
+<li>Gemma wording assistance must not invent pages, bugs, or evidence.</li>
+<li>Provider: Mock | Browser adapter: Direct Playwright</li>
+<li>Run stop reason: action_budget_sample</li></section><section class="section"><h2 id="Recommended Next Testing Areas">Recommended Next Testing Areas</h2><ul><li>Explore unvisited application URL: https://demo.gemmaqa.local/settings</li>
+<li>Increase controlled-write tests on remaining forms (safe test data only).</li>
+<li>Triage suspected bugs with targeted reproduction.</li></section>
+    <p class="muted">Generated 2026-08-31T12:14:33.284051. Deterministic memory is the source of truth.</p>
+  </main>
+</body>
+</html>

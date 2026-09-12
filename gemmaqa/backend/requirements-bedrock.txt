@@ -1,0 +1,13 @@
+# Optional provider backend: Amazon Bedrock (GEMMA_PROVIDER=bedrock).
+#
+#   pip install -r backend/requirements.txt
+#   pip install -r backend/requirements-bedrock.txt
+#
+# Kept out of requirements.txt so a mock / openai_compatible install stays lean,
+# matching how the transformers backend is already handled. app.gemma imports
+# boto3 lazily inside the Bedrock provider, never at package import time, so the
+# other providers keep working with this file uninstalled.
+#
+# >=1.35 because the Converse API this provider targets is not present in
+# earlier releases.
+boto3>=1.35.0

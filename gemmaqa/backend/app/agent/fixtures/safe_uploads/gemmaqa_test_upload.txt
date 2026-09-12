@@ -1,0 +1,7 @@
+GemmaQA safe test upload fixture.
+
+This file is repository-controlled and committed alongside the GemmaQA
+codebase. It is used ONLY to satisfy file-upload form fields during
+automated QA runs so no arbitrary or user-supplied file content is ever
+uploaded to a target application. It contains no personal data, no
+executable content, and no secrets.

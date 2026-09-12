@@ -1,0 +1,10 @@
+# Additional dependencies for Cloud Run deployment
+# Install alongside requirements.txt and requirements-gemini.txt
+#
+# Usage: pip install -r requirements.txt -r requirements-gemini.txt -r requirements-cloud.txt
+
+# Gunicorn for production WSGI server (if needed)
+gunicorn==22.0.0
+
+# Python-dotenv for .env file loading (may already be in requirements.txt)
+python-dotenv==1.0.1

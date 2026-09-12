@@ -1,0 +1,4 @@
+page_id,title,url,page_type,forms,tables,fingerprint
+5bbf8dc3-c753-46f7-909e-73790ca78e83,Login,https://demo.gemmaqa.local/login,authentication,,,fp-login
+0eadf379-a718-415b-9cf5-2771bb84f962,Dashboard,https://demo.gemmaqa.local/dashboard,dashboard,,,fp-dash
+845c3c43-777c-4a21-ba19-36ae5a2bb8f9,Inventory | GemmaQA Demo,https://demo.gemmaqa.local/inventory,list,,,fp-inv

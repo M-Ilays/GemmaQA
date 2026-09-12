@@ -1,0 +1,3 @@
+test_id,title,description,category,priority,preconditions,steps,expected_results,related_workflow_id
+tc-001,Login with valid credentials,,smoke,medium,,Open login | Submit form,Dashboard loads,
+tc-002,Search inventory,,functional,medium,,Open inventory | Search,Results table updates,

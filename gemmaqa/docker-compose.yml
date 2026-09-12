@@ -1,0 +1,38 @@
+# GemmaQA local development stack
+# Ports: API 8000 | UI 5173
+# Default test target: https://thinking-tester-contact-list.herokuapp.com/
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      GEMMA_PROVIDER: mock
+      GEMMA_TEMPERATURE: "0"
+      GEMMA_MAX_OUTPUT_TOKENS: "512"
+      GEMMA_SUPPORTS_IMAGES: "false"
+      PLAYWRIGHT_HEADLESS: "true"
+      DEBUG: "true"
+      ALLOW_LOCAL_TARGETS: "true"
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+      DATABASE_URL: sqlite+aiosqlite:///./gemmaqa.db
+    volumes:
+      - ./evidence:/evidence
+      - ./backend/gemmaqa.db:/app/gemmaqa.db
+    command: python run.py
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://127.0.0.1:8000
+      VITE_WS_BASE_URL: ws://127.0.0.1:8000
+      VITE_DEMO_MODE: "false"
+    depends_on:
+      - backend

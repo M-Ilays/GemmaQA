@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact Detail — Auth Fixture</title>
+</head>
+<body>
+  <h1>Contact Details</h1>
+  <div id="detail"></div>
+  <a id="edit_link" href="#">Edit</a>
+  <button id="delete" type="button">Delete</button>
+  <a href="dashboard.html">Back</a>
+  <script>
+    if (!localStorage.getItem("gemmaqa_session")) location.href = "login.html?expired=1";
+    const id = Number(new URLSearchParams(location.search).get("id") || 0);
+    const contacts = JSON.parse(localStorage.getItem("gemmaqa_contacts") || "[]");
+    const c = contacts[id] || { name: "Unknown", email: "" };
+    document.getElementById("detail").textContent = c.name + " — " + c.email;
+    document.getElementById("edit_link").href = "edit.html?id=" + id;
+    document.getElementById("delete").onclick = () => {
+      contacts.splice(id, 1);
+      localStorage.setItem("gemmaqa_contacts", JSON.stringify(contacts));
+      location.href = "dashboard.html";
+    };
+  </script>
+</body>
+</html>

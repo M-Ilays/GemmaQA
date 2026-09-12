@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact Dashboard — Auth Fixture</title>
+</head>
+<body>
+  <h1>Contact List</h1>
+  <nav>
+    <a id="nav_list" href="dashboard.html">Contacts</a>
+    <a id="nav_add" href="add.html">Add Contact</a>
+    <button id="logout" type="button">Logout</button>
+  </nav>
+  <table id="contacts">
+    <thead><tr><th>Name</th><th>Email</th><th>Actions</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <script>
+    if (!localStorage.getItem("gemmaqa_session")) {
+      location.href = "login.html?expired=1";
+    }
+    const contacts = JSON.parse(localStorage.getItem("gemmaqa_contacts") || "[]");
+    const rows = document.getElementById("rows");
+    contacts.forEach((c, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td><a href="detail.html?id=${i}">${c.name}</a></td><td>${c.email}</td>
+        <td><a href="edit.html?id=${i}">Edit</a> <button class="delete" data-id="${i}">Delete</button></td>`;
+      rows.appendChild(tr);
+    });
+    document.getElementById("logout").onclick = () => {
+      localStorage.removeItem("gemmaqa_session");
+      location.href = "login.html";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+execution_id,test_id,run_id,status,notes,evidence_ids,executed_at
+ex-001,tc-001,sample-run-001,passed,OK,,2026-08-31T12:14:33.281054
+ex-002,tc-002,sample-run-001,failed,Authorization: ***REDACTED***,,2026-08-31T12:14:33.281065

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Add Contact — Auth Fixture</title>
+</head>
+<body>
+  <h1>Add Contact</h1>
+  <form id="add_form">
+    <label>Name <input id="name" name="name" type="text" required /></label>
+    <label>Email <input id="email" name="email" type="email" required /></label>
+    <button type="submit" id="save">Save</button>
+  </form>
+  <a href="dashboard.html">Back</a>
+  <script>
+    if (!localStorage.getItem("gemmaqa_session")) location.href = "login.html?expired=1";
+    document.getElementById("add_form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const contacts = JSON.parse(localStorage.getItem("gemmaqa_contacts") || "[]");
+      contacts.push({
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+      });
+      localStorage.setItem("gemmaqa_contacts", JSON.stringify(contacts));
+      location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>

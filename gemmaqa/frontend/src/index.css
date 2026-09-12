@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-0: #071018;
+  --bg-1: #0b1220;
+  --accent: #14b8a6;
+  --accent-2: #f97316;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 520px at 8% -8%, rgba(20, 184, 166, 0.16), transparent 55%),
+    radial-gradient(800px 420px at 92% 0%, rgba(249, 115, 22, 0.1), transparent 50%),
+    linear-gradient(165deg, #071018 0%, #0b1220 48%, #111827 100%);
+  background-attachment: fixed;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 18%, transparent 72%);
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-ink-950/60 px-3 py-2.5 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-tide-500/50 focus:ring-2 focus:ring-tide-500/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-tide-500 px-4 py-2.5 text-sm font-medium text-ink-950 transition hover:bg-tide-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-white/15 px-4 py-2.5 text-sm text-slate-200 transition hover:bg-white/5;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-[0.14em] text-slate-400;
+  }
+
+  .tab {
+    @apply rounded-lg px-3 py-2 text-sm text-slate-400 transition hover:bg-white/5 hover:text-slate-100;
+  }
+
+  .tab-active {
+    @apply bg-white/10 text-white;
+  }
+}
+
+/* Mermaid container */
+.mermaid-host svg {
+  max-width: 100%;
+  height: auto;
+}
+
+html[data-theme="light"] body {
+  color-scheme: light;
+  color: #0f172a;
+  background:
+    radial-gradient(900px 480px at 10% -10%, rgba(13, 148, 136, 0.12), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+html[data-theme="light"] .surface {
+  @apply border-slate-200/80 bg-white/80;
+}
+
+html[data-theme="light"] .field {
+  @apply border-slate-200 bg-white text-slate-900 placeholder:text-slate-400;
+}
+
+html[data-theme="light"] .tab-active {
+  @apply bg-slate-900/5 text-slate-900;
+}

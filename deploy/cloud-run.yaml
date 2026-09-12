@@ -1,0 +1,73 @@
+# Cloud Run service spec for GemmaQA (NOT deployed by this repo automatically).
+# Project: gemmaqa-hackathon  |  Region: us-central1  |  Service: gemmaqa
+#
+# SQLite and evidence/ live on the container filesystem and are ephemeral
+# across instance replacement. minScale=1 keeps one instance warm for the demo.
+#
+# Set GEMINI_API_KEY via Secret Manager when using GEMMA_PROVIDER=gemini.
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: gemmaqa
+  labels:
+    cloud.googleapis.com/location: us-central1
+  annotations:
+    run.googleapis.com/launch-stage: GA
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "1"
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: "true"
+        run.googleapis.com/execution-environment: gen2
+    spec:
+      containerConcurrency: 20
+      timeoutSeconds: 3600
+      containers:
+        - image: IMAGE_PLACEHOLDER
+          ports:
+            - name: http1
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: "2"
+              memory: 4Gi
+          env:
+            - name: HOST
+              value: "0.0.0.0"
+            - name: GEMMA_PROVIDER
+              value: gemini
+            - name: GEMINI_MODEL_ID
+              value: gemini-3.5-flash
+            - name: GEMMA_MAX_OUTPUT_TOKENS
+              value: "4096"
+            - name: BROWSER_ADAPTER
+              value: direct_playwright
+            - name: PLAYWRIGHT_HEADLESS
+              value: "true"
+            - name: PLAYWRIGHT_DOCKER
+              value: "1"
+            - name: SERVE_FRONTEND
+              value: "true"
+            - name: DEBUG
+              value: "false"
+            - name: ALLOW_LOCAL_TARGETS
+              value: "false"
+            - name: CORS_ORIGINS
+              value: "http://localhost:5173,http://127.0.0.1:5173,http://localhost:8080,http://127.0.0.1:8080"
+            # GEMINI_API_KEY: attach with --set-secrets at deploy time
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 12
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 30

@@ -1,0 +1,6 @@
+# Optional Google Gemini API (GEMMA_PROVIDER=gemini).
+# Not required for Strands / Bedrock / Ollama / Mock.
+#
+#   pip install -r requirements-gemini.txt
+
+google-genai==2.20.0
